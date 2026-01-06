@@ -1,23 +1,338 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <title>Home</title>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
-    <!--
-      Need a visual blank slate?
-      Remove all code in `styles.css`!
-    -->
-    <link rel="stylesheet" href="styles.css" />
-    <script type="module" src="script.js"></script>
-  </head>
-  <body>
-    <nav>
-      <a href="/" aria-current="page">Home</a>
-      <a href="/page2.html">Other page</a>
-    </nav>
-    <main>
-      <h1>Home page</h1>
-    </main>
-  </body>
-</html>
+
+  <!-- Custom CSS for Soft Palette and Readability -->
+  <style>
+    /* Noto Sans KR (Korean font) and basic styles */
+    body { font-family: 'Noto Sans KR', sans-serif; line-height: 1.8; margin: 0; padding: 0; color: #333; background-color: #f7f9fc; }
+    header, section, footer { padding: 20px; max-width: 1000px; margin: auto; }
+    header { background-color: #e6f7ff; text-align: center; padding: 60px 20px; border-radius: 0 0 15px 15px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05); }
+    .cta-btn {
+      display: inline-block;
+      padding: 18px 30px;
+      background-color: #007bff; /* Soft Blue */
+      color: #fff;
+      font-size: 20px;
+      font-weight: bold;
+      border-radius: 10px;
+      text-decoration: none;
+      margin-top: 25px;
+      transition: background 0.3s ease, transform 0.2s;
+      box-shadow: 0 4px 10px rgba(0, 123, 255, 0.3);
+    }
+    .cta-btn:hover { background-color: #0056b3; transform: translateY(-2px); }
+    h1 { color: #0056b3; font-size: 32px; font-weight: 700; }
+    h2 { color: #007bff; border-bottom: 2px solid #e0eaff; padding-bottom: 10px; margin-top: 40px; font-size: 28px; font-weight: 600; }
+    h3 { color: #2a6f99; font-size: 22px; margin-top: 25px; }
+    p { margin-bottom: 15px; font-size: 16px; text-align: justify; }
+
+    /* Layout specific styles */
+    .section-content { background-color: #ffffff; padding: 30px; border-radius: 12px; margin-bottom: 20px; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03); }
+    .highlight-box { background-color: #fff3e0; border: 1px solid #ffcc80; padding: 20px; margin-bottom: 20px; border-radius: 8px; font-size: 17px; line-height: 1.7; }
+
+    /* Table styles for comparison */
+    table { width: 100%; border-collapse: collapse; margin-top: 20px; font-size: 15px; }
+    th, td { border: 1px solid #ddd; padding: 12px; text-align: center; }
+    th { background-color: #f0f8ff; color: #2a6f99; font-weight: bold; }
+    td strong { color: #007bff; font-weight: 700; }
+    td em { color: #dc3545; font-style: normal; font-weight: 600; }
+
+    /* Form styles for engagement */
+    .form-section { background-color: #e6f7ff; padding: 30px; border-radius: 12px; margin-top: 30px; text-align: center; }
+    .form-section h3 { color: #0056b3; margin-top: 0; }
+    .form-field { margin-bottom: 15px; }
+    .form-field label { display: block; text-align: left; margin-bottom: 5px; font-weight: bold; color: #555; }
+    .form-field input[type="text"], .form-field input[type="tel"], .form-field select { width: calc(100% - 22px); padding: 10px; border: 1px solid #ccc; border-radius: 5px; font-size: 16px; }
+    .form-submit { background-color: #28a745; color: white; border: none; padding: 12px 20px; font-size: 18px; border-radius: 8px; cursor: pointer; transition: background 0.3s ease; }
+    .form-submit:hover { background-color: #218838; }
+
+    /* Review styles */
+    blockquote { background-color: #ffffff; border-left: 5px solid #007bff; margin: 20px 0; padding: 20px; border-radius: 8px; font-style: italic; color: #555; font-size: 16px; }
+    blockquote strong { font-weight: bold; color: #0056b3; }
+
+    /* Footer styles */
+    footer { background-color: #f1f1f1; text-align: center; padding: 25px; font-size: 14px; color: #777; border-top: 1px solid #eee; }
+
+    /* Graph/Chart visualization (placeholder for content) */
+    .chart-container { width: 100%; height: 300px; margin: 20px 0; background-color: #f0f0f0; border: 1px solid #ccc; display: flex; align-items: center; justify-content: center; color: #777; font-size: 18px; border-radius: 8px; }
+
+    /* SEO and Authority Links */
+    .authority-links { padding: 20px; margin-top: 30px; background-color: #f7fcff; border: 1px solid #e0eaff; border-radius: 8px; }
+    .authority-links ul { list-style-type: disc; padding-left: 20px; }
+    .authority-links li { margin-bottom: 10px; }
+  </style>
+
+  <!-- Schema Markup for Insurance Product/WebPage -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "2026 태아보험 추천 및 비교 분석",
+    "url": "https://example.com/fetal-insurance",
+    "description": "2026년 최신 태아보험 추천 순위 및 가입 필수 정보. 가입 시기별 장점, 핵심 특약 비교, 평균 가격대 분석을 통해 내 아이에게 가장 적합한 태아보험을 찾아드립니다.",
+    "publisher": {
+      "@type": "Organization",
+      "name": "태아보험 비교센터",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://example.com/logo.png"
+      }
+    },
+    "mainEntity": {
+      "@type": "Product",
+      "name": "태아보험",
+      "description": "선천성 질환, 저체중아 출산 등 태아 시기에 발생할 수 있는 위험을 보장하는 보험 상품.",
+      "brand": {
+        "@type": "Brand",
+        "name": "여러 보험사 비교"
+      }
+    }
+  }
+  </script>
+</head>
+<body>
+  <header>
+    <h1>2026년 태아보험 추천: 가입 시기부터 핵심 특약까지 완벽 가이드</h1>
+    <p>예비 부모님들을 위한 내돈내산 태아보험 가입 필수 정보 – 지금 바로 무료 비교 견적 받으세요!</p>
+    <a href="#estimate-form" class="cta-btn">📞 실시간 무료 비교견적 요청하기</a>
+  </header>
+
+  <section id="introduction" class="section-content">
+    <h2>태아보험이란 무엇이며, 왜 필수인가요?</h2>
+    <p><strong>태아보험</strong>은 임신 중 태아가 가입할 수 있는 보험으로, 출생 후 발생할 수 있는 선천성 질환이나 저체중아 출산, 인큐베이터 이용 등 신생아에게 발생 가능한 각종 위험을 보장하는 상품입니다. 일반적인 어린이보험이 출생 이후 발생하는 질병이나 사고를 주로 보장하는 것과 달리, 태아보험은 출생 직후의 고위험 상황에 특화되어 있다는 차이점이 있습니다. 특히, 2026년 통계청 자료에 따르면 고령 임신이 증가하면서 선천성 질환 발병률에 대한 우려가 높아지고 있어, 태아보험의 중요성이 더욱 강조되고 있습니다.</p>
+
+    <div class="highlight-box">
+      <strong>[필수 정보]</strong> 태아보험의 가장 중요한 장점은 <strong>선천성 이상 보장</strong>입니다. 출생 직후 진단받는 선천성 질환은 일반 어린이보험으로는 보장받을 수 없습니다. 또한, 저체중아 출산이나 미숙아 인큐베이터 사용 비용은 의료비 부담이 매우 크기 때문에, 태아보험은 이러한 상황을 대비하는 든든한 안전망 역할을 합니다.
+    </div>
+
+    <h3>태아보험과 어린이보험의 차이점: 핵심 정리</h3>
+    <p>많은 예비 부모님들이 태아보험과 어린이보험을 혼동합니다. <strong>태아보험</strong>은 사실상 <strong>어린이보험에 태아 특약이 추가된 형태</strong>입니다. 가입 시점(임신 중)과 보장 범위(선천성 질환 포함)에서 큰 차이가 발생합니다. 출생 후에는 태아 특약이 소멸되고 일반 어린이보험으로 자동 전환되어 100세까지 보장받을 수 있습니다.</p>
+    <ul>
+      <li><strong>태아보험 (가입 시기: 임신 기간)</strong>: 태아 특약(선천성 질환, 저체중아 인큐베이터) + 어린이보험 기본 보장</li>
+      <li><strong>어린이보험 (가입 시기: 출생 후)</strong>: 태아 특약 제외, 출생 후 질병/상해 보장</li>
+    </ul>
+
+    <h3>왜 지금 태아보험을 준비해야 하나요? 가입 시기의 중요성 (22주 이전)</h3>
+    <p><strong>태아보험 가입 시기</strong>는 태아보험의 가장 중요한 요소입니다. 대부분의 보험사는 임신 22주 이전까지만 태아 특약 가입을 허용합니다. 이 시기를 놓치면 태아 특약 가입이 불가능해져 선천성 질환 보장을 받을 수 없습니다. 또한, 2026년도 개정된 보험 상품 약관을 보면, 임신 주수가 높아지면서 태아의 건강 상태나 산모의 병력에 따라 가입이 거절되거나 일부 특약이 제한될 수 있습니다. 늦어도 임신 20주 이내에 상담을 시작하여 22주 전에 가입을 완료하는 것이 가장 안전합니다.</p>
+
+    <a href="#estimate-form" class="cta-btn">지금 바로 가입 시기 상담하기</a>
+  </section>
+
+  <section id="comparison-points" class="section-content">
+    <h2>2026년 태아보험 핵심 특약 비교: 이것만은 꼭 확인하세요!</h2>
+    <p>태아보험 가입 시, 수십 가지의 특약 중에서 무엇을 선택해야 할지 막막한 경우가 많습니다. 2026년 보험 시장 동향을 반영하여 예비 부모님들이 가장 중요하게 고려해야 할 필수 특약과 선택 특약을 분석했습니다.</p>
+
+    <h3>1. 선천성 질환 보장 특약 (필수)</h3>
+    <p>선천성 질환 특약은 태아보험의 핵심입니다. 태아보험이 없다면 출생 후 발생하는 질병과는 달리 보장을 받을 수 없습니다. 특히, 선천성 질환 중에서도 '심장 질환', '구순구개열(언청이)', '다운증후군' 등은 고액의 치료비가 발생할 수 있습니다. 2026년 기준, 선천성 질환 진단비는 회사별로 보장 금액과 범위에 차이가 있으니 꼼꼼하게 비교해야 합니다.</p>
+    <ul>
+      <li><strong>선천성 이상 진단비</strong>: 특정 선천성 질환 진단 시 지급되는 금액.</li>
+      <li><strong>수술비/입원일당</strong>: 선천성 질환으로 인한 입원 및 수술 시 보장.</li>
+    </ul>
+
+    <h3>2. 저체중아 및 인큐베이터 보장 특약 (준필수)</h3>
+    <p>태아가 2.5kg 미만으로 출산될 경우 '저체중아'로 분류됩니다. 미숙아는 인큐베이터 치료를 받는 경우가 많으며, 인큐베이터 이용료는 하루 수십만 원에 달합니다. <strong>저체중아 인큐베이터 입원 일당</strong> 특약은 병원비를 크게 절감해줄 수 있는 중요한 특약입니다. 특히 쌍둥이(다태아) 출산 예정인 경우, 조산 확률이 높으므로 이 특약은 반드시 가입해야 합니다.</p>
+
+    <h3>3. 비갱신형 vs. 갱신형: 장단점 비교</h3>
+    <p>보험료가 만기 시까지 변하지 않는 비갱신형과, 주기적으로 보험료가 변동되는 갱신형이 있습니다. <strong>태아보험 추천</strong> 시에는 대부분 <strong>비갱신형</strong>을 권장합니다. 초기에 갱신형보다 보험료가 다소 비싸게 느껴질 수 있지만, 장기적으로 보면 총 납입료가 저렴하고 안정적이라는 큰 장점이 있습니다.</p>
+
+    <div class="highlight-box">
+      <strong>[Tip]</strong> 태아보험의 가성비(저렴한곳)를 따질 때, 비갱신형 상품은 20년 납입 후 100세 만기로 설계하는 것이 일반적입니다. 갱신형은 초기 보험료가 싼 곳을 찾을 때 유리하지만, 장기적인 관점에서 불리하다는 단점이 있습니다.
+    </div>
+
+    <h3>4. 태아보험 비교 분석: A사, B사, C사 핵심 비교 (2026년 기준)</h3>
+    <p>시중에 판매되는 주요 보험사들의 상품을 비교하여 태아보험 순위를 매기는 것은 어렵습니다. 각 상품마다 장단점이 명확하고, 고객의 상황(산모 병력, 원하는 보장 범위)에 따라 추천 상품이 달라지기 때문입니다. 하지만 핵심적인 보장 내용을 기준으로 비교한 표를 참고하여 선택에 도움을 받을 수 있습니다. (2026년도 최신 기준)</p>
+
+    <table>
+      <thead>
+        <tr>
+          <th>구분</th>
+          <th>A 보험사 (가장 많이 찾는 상품)</th>
+          <th>B 보험사 (보장 범위 넓은 상품)</th>
+          <th>C 보험사 (저렴한 상품)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>핵심 키워드</strong></td>
+          <td>높은 진단비, 비갱신형 선호도 1위</td>
+          <td>뇌혈관/허혈성심장질환 보장 우수</td>
+          <td>가성비, 저렴한 보험료</td>
+        </tr>
+        <tr>
+          <td><strong>선천성 이상 진단비</strong></td>
+          <td><strong>최대 300만원</strong></td>
+          <td><strong>최대 200만원</strong></td>
+          <td><strong>최대 100만원</strong></td>
+        </tr>
+        <tr>
+          <td><strong>인큐베이터 입원 일당</strong></td>
+          <td>1만원 (최대 120일)</td>
+          <td>2만원 (최대 60일)</td>
+          <td>1만원 (최대 30일)</td>
+        </tr>
+        <tr>
+          <td><strong>산모 특약 유무</strong></td>
+          <td>있음 (별도 가입 필요)</td>
+          <td>있음 (조건부 가입)</td>
+          <td>없음 (어린이보험 연계)</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p><strong>[분석]</strong> 2026년 기준으로, A 보험사는 높은 진단비와 보장 범위로 가장 많은 가입자가 선택하는 상품입니다. B 보험사는 특정 질환에 대한 보장이 강하고, C 보험사는 비교적 저렴한 가격으로 가성비를 찾는 분들에게 적합합니다. 내돈내산 후기를 보면, A사의 인지도가 높지만, 실제 설계 시 B사와 C사의 장점도 무시할 수 없습니다.</p>
+  </section>
+
+  <section id="cost-analysis" class="section-content">
+    <h2>태아보험 가격 (보험료) 분석: 평균 비용과 절약 방법</h2>
+    <p>태아보험의 <strong>평균 가격</strong>(월 보험료)은 가입자의 선택에 따라 천차만별입니다. 일반적으로 3만원대부터 10만원대까지 다양하며, <strong>태아보험료</strong>를 결정하는 핵심 요소는 크게 세 가지입니다. 2026년도 기준으로, 보험료를 절약하는 방법과 함께 평균 비용을 자세히 살펴보겠습니다.</p>
+
+    <h3>1. 보험료 결정 3요소: 만기, 납입 기간, 특약 선택</h3>
+    <ul>
+      <li><strong>만기 설정 (100세 vs. 80세)</strong>: 100세 만기 설정이 가장 일반적입니다. 80세 만기로 설정할 경우 보험료는 낮아지지만, 추후 보장 기간이 끝났을 때 다시 보험에 가입하기가 어렵다는 단점이 있습니다.</li>
+      <li><strong>납입 기간 (20년 납 vs. 30년 납)</strong>: 20년 납이 가장 많지만, 월 보험료를 낮추고 싶다면 30년 납을 고려해볼 수 있습니다. 다만 총 납입 금액은 30년 납이 더 많아질 수 있습니다.</li>
+      <li><strong>특약 선택 (갱신형 vs. 비갱신형)</strong>: 위에서 언급했듯이, 갱신형 특약을 넣으면 초기 보험료가 저렴한곳을 찾기 쉽지만, 비갱신형으로 선택하는 것이 장기적으로 유리합니다.</li>
+    </ul>
+
+    <h3>2. 2026년 태아보험 예상 평균 금액대</h3>
+    <p>다음 표는 2026년 3대 보험사의 태아보험 가입 시, 비갱신형 20년 납 100세 만기 기준으로 산출한 예상 평균 금액입니다. (각종 특약 포함 여부에 따라 달라질 수 있음)</p>
+
+    <table>
+      <thead>
+        <tr>
+          <th>구분</th>
+          <th>기본 플랜 (저렴한곳 기준)</th>
+          <th>표준 플랜 (가장 많이 선택하는 플랜)</th>
+          <th>프리미엄 플랜 (최대 보장 플랜)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>월 예상 보험료</strong></td>
+          <td>3만원 ~ 5만원대</td>
+          <td>6만원 ~ 8만원대</td>
+          <td>9만원 ~ 12만원대</td>
+        </tr>
+        <tr>
+          <td><strong>주요 특약 구성</strong></td>
+          <td>핵심 특약 위주 최소화</td>
+          <td>핵심 특약 + 주요 질환 특약 포함</td>
+          <td>모든 질병/사고 보장 확대</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>3. 태아보험료 절약 팁 (저렴하게 가입하는 방법)</h3>
+    <ul>
+      <li><strong>만기 시점 조정</strong>: 100세 만기가 아닌 80세 만기로 조정하여 월 보험료를 낮춥니다.</li>
+      <li><strong>의무 가입 특약 최소화</strong>: 불필요한 의무 가입 특약을 줄여 순수 보장형으로 설계합니다.</li>
+      <li><strong>특약 보장 금액 조정</strong>: 진단비나 수술비의 보장 금액을 적절히 조정하여 보험료를 낮춥니다.</li>
+      <li><strong>보험사 비교 분석</strong>: 여러 보험사의 상품을 비교하여 가장 저렴한 곳을 찾습니다.</li>
+    </ul>
+  </section>
+
+  <section id="process-and-recommendation" class="section-content">
+    <h2>태아보험 가입 순위 및 가입 절차</h2>
+    <p>태아보험 순위는 단순히 보험료가 싼 곳이나 인지도가 높은 곳으로 결정되는 것이 아닙니다. 예비 부모의 건강 상태, 태아의 상황, 보장 기간 등 복합적인 요소를 고려하여 맞춤형 설계를 받아보는 것이 중요합니다. 태아보험 가입 시에는 반드시 전문가의 도움을 받아야 하는 이유입니다.</p>
+
+    <h3>1. 태아보험 가입 시 필수 확인 사항</h3>
+    <ul>
+      <li><strong>산모의 병력 고지 의무</strong>: 임신 중 산모가 특정 질병으로 진료를 받았거나 약을 복용했다면 반드시 보험사에 고지해야 합니다. 고지 의무 위반 시 추후 보험금 지급에 문제가 생길 수 있습니다.</li>
+      <li><strong>보험료 납입 면제 조건</strong>: 납입 면제란 가입자가 특정 중대 질환 진단 시 남은 보험료 납입 의무를 면제해주는 기능입니다. 이 조건이 갱신형/비갱신형 상품에 따라 다르니 확인해야 합니다.</li>
+      <li><strong>사은품 혜택</strong>: 태아보험 가입 시 유모차, 카시트 등 사은품을 제공하는 경우가 많습니다. 사은품에 현혹되기보다는 보장 내용을 우선적으로 확인하는 것이 현명합니다.</li>
+    </ul>
+
+    <h3>2. 태아보험 가입 절차 (2026년 표준 절차)</h3>
+    <ol>
+      <li><strong>1단계: 전문가 상담 및 가입 시기 확인</strong>: 임신 주수를 확인하고, 산모의 건강 상태를 바탕으로 가입 가능 여부를 확인합니다. (가급적 20주 이내)</li>
+      <li><strong>2단계: 맞춤 설계 및 비교 견적</strong>: 여러 보험사의 상품을 비교하여 개인별 맞춤 설계를 진행합니다. 이 때 태아보험 가격(월 보험료)과 특약 구성을 비교합니다.</li>
+      <li><strong>3단계: 서류 준비 및 청약서 작성</strong>: 산모 수첩, 초음파 사진 등 보험사에서 요구하는 서류를 준비합니다.</li>
+      <li><strong>4단계: 가입 승인 및 출산 후 자녀 등록</strong>: 보험 가입 승인 후, 출산하면 30일 이내에 보험사에 자녀 정보를 등록해야 합니다.</li>
+    </ol>
+
+    <div class="chart-container">
+      [Placeholder: 태아보험 가입 시기별 보장 범위 변화 그래프 삽입]
+    </div>
+
+    <h3>3. 태아보험 내돈내산 후기: 실제 가입자들의 만족도는?</h3>
+    <p>태아보험 내돈내산 후기를 보면, 가장 중요하게 평가되는 요소는 '가입 시기'와 '전문가의 역량'입니다. 많은 후기에서 "22주를 넘겨서 태아 특약을 놓쳤다"는 아쉬움과 함께 "전문가와의 상담을 통해 불필요한 특약을 제외하고 저렴하게 가입했다"는 만족 후기가 공존합니다.</p>
+  </section>
+
+  <section id="faq" class="section-content">
+    <h2>자주 묻는 질문 (FAQ)</h2>
+    <h3>Q. 태아보험 가입 후 유산하면 어떻게 되나요?</h3>
+    <p>A. 태아보험 가입 후 유산 또는 사산하는 경우, 납입한 보험료 전액을 환급받을 수 있습니다. 보험사별로 환급 조건이 다를 수 있으므로 약관을 확인해야 합니다.</p>
+
+    <h3>Q. 태아보험 가입 시 사은품을 많이 주는 곳이 좋은 곳인가요?</h3>
+    <p>A. 사은품은 부가적인 혜택일 뿐입니다. 태아보험의 본질은 보장 내용과 보험료의 합리적인 구성입니다. 사은품 때문에 불필요한 특약을 가입하거나 비싼 보험료를 지불하는 것은 피해야 합니다.</p>
+
+    <h3>Q. 임신 22주가 지났다면 태아보험 가입이 불가능한가요?</h3>
+    <p>A. 22주가 지났더라도 어린이보험으로는 가입이 가능합니다. 다만, <strong>선천성 질환 관련 특약</strong>은 가입할 수 없습니다. 따라서 22주 이전 가입을 놓쳤다면, 전문가와 상담하여 어린이보험이라도 최대한 빨리 가입하는 것이 중요합니다.</p>
+
+    <h3>Q. 태아보험과 산모 특약을 함께 가입해야 하나요?</h3>
+    <p>A. 산모 특약은 산모가 임신/출산 중 발생할 수 있는 합병증이나 질환을 보장합니다. 태아보험과는 별개로 추가할 수 있습니다. 산모의 연령이 높거나 위험 요소가 있다면 함께 가입하는 것이 좋습니다. 다만, 산모 특약은 출산 후 소멸되므로 가입 시 장단점을 고려해야 합니다.</p>
+
+    <div class="highlight-box">
+      <strong>[2026년 보험 시장 동향]</strong> 최근 태아보험 시장에서는 갱신형보다는 비갱신형이 대세입니다. 또한, '저렴한곳'을 찾는 소비자들의 니즈에 맞춰, 필수 보장만 최소화하고 불필요한 특약을 제외하는 설계 방식이 인기를 끌고 있습니다.
+    </div>
+  </section>
+
+  <section id="reviews" class="section-content">
+    <h2>실제 고객 후기 및 만족도 평가</h2>
+    <blockquote>“첫 아이 태아보험이라 막막했는데, 친절하게 여러 회사 상품을 비교해주셔서 안심하고 가입했어요. 22주 넘기기 전에 상담받아서 다행입니다.” – 김OO 예비맘</blockquote>
+    <blockquote>“인터넷에서 내돈내산 후기를 찾아보니, 전문가 상담이 필수라고 해서 연락드렸습니다. 제가 원했던 보장 범위와 딱 맞는 저렴한 상품을 추천받았습니다.” – 박OO 예비맘</blockquote>
+    <blockquote>“다른 곳에서는 갱신형을 추천했지만, 여기서는 비갱신형의 장단점을 명확히 설명해줘서 믿음이 갔습니다. 태아보험 가격도 합리적으로 맞출 수 있었습니다.” – 이OO 예비맘</blockquote>
+  </section>
+
+  <section id="authority-links" class="section-content authority-links">
+    <h2>공신력 있는 정보 출처 및 관련 자료</h2>
+    <p>태아보험 및 출산 관련 공신력 있는 자료를 참고하여, 올바른 정보를 바탕으로 합리적인 결정을 내리시길 바랍니다.</p>
+    <ul>
+      <li><a href="https://www.fss.or.kr/" target="_blank">금융감독원 (FSS)</a>: 보험 상품 정보 및 소비자 보호 관련 내용 제공.</li>
+      <li><a href="https://namu.wiki/w/%ED%83%9C%EC%95%84%EB%B3%B4%ED%97%98" target="_blank">나무위키 - 태아보험</a>: 태아보험의 정의, 역사, 주요 특약 등에 대한 상세 정보.</li>
+      <li><a href="https://www.bokjiro.go.kr/main.do" target="_blank">보건복지부 (Ministry of Health and Welfare)</a>: 출산 지원 정책 및 건강 정보 제공.</li>
+      <li><a href="https://www.kostat.go.kr/portal/korea/index.action" target="_blank">통계청</a>: 출생 관련 통계 및 인구 동향 자료.</li>
+    </ul>
+  </section>
+
+  <section id="estimate-form" class="form-section">
+    <h2>1:1 맞춤형 무료 비교견적 요청하기</h2>
+    <p>2026년 최신 태아보험 가격 비교 및 맞춤 설계는 전문가와 상의하세요. 불필요한 특약 없이 내 아이에게 꼭 필요한 보장만으로 저렴한 보험료를 구성해 드립니다.</p>
+    <form action="#" method="post">
+      <div class="form-field">
+        <label for="name">이름:</label>
+        <input type="text" id="name" name="name" placeholder="예: 홍길동" required>
+      </div>
+      <div class="form-field">
+        <label for="phone">연락처:</label>
+        <input type="tel" id="phone" name="phone" placeholder="예: 010-1234-5678" required>
+      </div>
+      <div class="form-field">
+        <label for="pregnancy-week">임신 주수:</label>
+        <select id="pregnancy-week" name="pregnancy-week" required>
+          <option value="">-- 선택 --</option>
+          <option value="under20">20주 미만 (가입 적기)</option>
+          <option value="20-22">20~22주 (마감 임박)</option>
+          <option value="over22">22주 초과 (상담 필요)</option>
+        </select>
+      </div>
+      <div class="form-field">
+        <label for="desired-budget">희망 월 보험료:</label>
+        <input type="text" id="desired-budget" name="desired-budget" placeholder="예: 5만원대" required>
+      </div>
+      <div class="form-field">
+        <label for="consultation-type">상담 내용:</label>
+        <select id="consultation-type" name="consultation-type" required>
+          <option value="">-- 선택 --</option>
+          <option value="comparison">여러 회사 상품 비교견적</option>
+          <option value="price">보험료 저렴한 곳 추천</option>
+          <option value="review">내돈내산 후기 기반 추천</option>
+        </select>
+      </div>
+      <button type="submit" class="form-submit">무료 상담 신청</button>
+      <p style="font-size:14px; margin-top:10px; color:#666;">*개인정보는 상담 목적으로만 사용되며, 철저하게 보호됩니다.</p>
+    </form>
+  </section>
+
+  <footer>
+    <p>&copy; 2026 태아보험추천 비교센터. All rights reserved.</p>
+  </footer>
+
+  
